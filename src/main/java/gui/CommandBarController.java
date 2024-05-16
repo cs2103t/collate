@@ -12,7 +12,7 @@ import javafx.scene.layout.BorderPane;
 /**
  * This class handles the TextField that users input commands in and the Label
  * that shows feedback.
- * 
+ *
  * @author Sebastian Quek
  *
  */
@@ -24,7 +24,7 @@ public class CommandBarController extends BorderPane {
     @FXML
     private TextField commandBar;
 
-    private static final String COMMAND_BAR_LAYOUT_FXML = "/main/resources/layouts/CommandBar.fxml";
+    private static final String COMMAND_BAR_LAYOUT_FXML = "/layouts/CommandBar.fxml";
 
     private MainApp mainApp;
 

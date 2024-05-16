@@ -16,7 +16,7 @@ import main.java.data.SourceFile;
 /**
  * This class controls the view that shows an author's individual contributions
  * to the source files.
- * 
+ *
  * @author Sebastian Quek
  *
  */
@@ -24,11 +24,11 @@ public class FileStatsController extends BorderPane {
 
     @FXML
     private ListView<FileStatsItem> fileStats;
-    
+
     @FXML
     private Label title;
 
-    private static final String FILE_STATS_FXML = "/main/resources/layouts/FileStats.fxml";
+    private static final String FILE_STATS_FXML = "/layouts/FileStats.fxml";
 
     private ArrayList<FileStatsItem> items;
 
@@ -43,18 +43,18 @@ public class FileStatsController extends BorderPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         title.setText(authorName);
         initStats(statistics);
     }
 
     private void initStats(HashMap<SourceFile, Integer> statistics) {
         items = new ArrayList<FileStatsItem>();
-        
+
         for (SourceFile sourceFile : statistics.keySet()) {
             addFileStatsItem(sourceFile, statistics.get(sourceFile));
         }
-        
+
         Collections.sort(items);
         fileStats.setItems(FXCollections.observableList(items));
     }
@@ -62,7 +62,7 @@ public class FileStatsController extends BorderPane {
     /**
      * Each FileStatsItem corresponds to a source file and is displayed as a row
      * in this custom view.
-     * 
+     *
      * @param currentFile
      * @param currentNumLines
      */

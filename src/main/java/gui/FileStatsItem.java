@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
  * This class represents each row in the custom FileStats view.
  * It implements Comparable so that they can be sorted by their percentage
  * values.
- * 
+ *
  * @author Sebastian Quek
  *
  */
@@ -35,7 +35,7 @@ public class FileStatsItem extends BorderPane implements
     @FXML
     private Shape circle;
 
-    private static final String FILE_STATS_ITEM_FXML = "/main/resources/layouts/FileStatsItem.fxml";
+    private static final String FILE_STATS_ITEM_FXML = "/layouts/FileStatsItem.fxml";
 
     private static final String STRING_TRUNCATED_FORMAT = "...%s";
     private static final String STRING_LINES_OF_CODE_FORMAT = "%s lines";

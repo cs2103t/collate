@@ -12,13 +12,13 @@ import main.java.backend.Logic;
 
 /**
  * MainApp is the entry point for JavaFX applications.
- * 
+ *
  * @author Sebastian Quek
  *
  */
 public class MainApp extends Application {
 
-    private static final String ROOT_LAYOUT_FXML = "/main/resources/layouts/RootLayout.fxml";
+    private static final String ROOT_LAYOUT_FXML = "/layouts/RootLayout.fxml";
     private static final String WINDOW_TITLE = "Collate";
 
     private static final String FEEDBACK_COLLATE_SUCCESSFUL = "Collate successful!";
@@ -60,7 +60,7 @@ public class MainApp extends Application {
 
     /**
      * Initialises the main JavaFX Stage with RootLayout being the main Scene.
-     * 
+     *
      * @param primaryStage
      */
     private void initPrimaryStage(Stage primaryStage) {
