@@ -75,16 +75,19 @@ public class Logic {
     // "Collate" command methods
     // ================================================================
 
-    private void handleCollate(Command command) {
+    public void handleCollate(File readDirectory, String saveDirectory,
+                              boolean willScanCurrentDirOnly, ArrayList<String> fileTypes) {
         resetVariables();
 
-        readDirectory = new File(command.getReadDirectory());
-        storage = new Storage(command.getSaveDirectory());
-        boolean willScanCurrentDirOnly = command.willScanCurrentDirOnly();
-        ArrayList<String> fileTypes = command.getFileTypes();
-
+        this.readDirectory = readDirectory;
+        this.storage = new Storage(saveDirectory);
         traverseDirectory(readDirectory, willScanCurrentDirOnly, fileTypes);
         saveCollatedFiles();
+    }
+
+    private void handleCollate(Command command) {
+        handleCollate(new File(command.getReadDirectory()), command.getSaveDirectory(),
+                      command.willScanCurrentDirOnly(), command.getFileTypes());
     }
 
     /**

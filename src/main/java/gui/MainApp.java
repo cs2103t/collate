@@ -1,6 +1,8 @@
 package main.java.gui;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,8 @@ public class MainApp extends Application {
     private static final String FEEDBACK_COLLATE_SUCCESSFUL = "Collate successful!";
     private static final String FEEDBACK_EMPTY = "";
     private static final String FEEDBACK_INVALID_COMMAND = "Invalid command.";
+
+    private static final KeyCode FOLDER_CHOOSER_HOTKEY = KeyCode.F1;
 
     private Stage primaryStage;
     private BorderPane rootLayout;
@@ -98,6 +102,8 @@ public class MainApp extends Application {
             handleEnterPress(userInput);
         } else if (key == KeyCode.ESCAPE) {
             addSummary(this);
+        } else if (key == FOLDER_CHOOSER_HOTKEY) {
+            new FolderChooserController(this);
         }
     }
 
@@ -134,5 +140,12 @@ public class MainApp extends Application {
         logic.setTargetAuthorIfAuthorExists(authorName);
         commandBarController.setFeedback(FEEDBACK_EMPTY);
         addFileStats(authorName);
+    }
+
+    public void handleCollateButtonClick(File inputFolder, String outputFolder,
+            boolean willScanCurrentDirOnly, ArrayList<String> fileTypes) {
+        logic.handleCollate(inputFolder, outputFolder, willScanCurrentDirOnly, fileTypes);
+        commandBarController.setFeedback(FEEDBACK_COLLATE_SUCCESSFUL);
+        addSummary(this);
     }
 }
